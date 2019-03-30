@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{jogo.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Genero: <ion-note *ngFor="let g of movie.genres">{{g.name}} </ion-note></ion-card-subtitle>
+      <ion-card-title class="text-center">{{jogo.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let p of movie.production_companies">
+        <ion-img *ngIf="p.logo_path" src="https://image.tmdb.org/t/p/w500/{{p.logo_path}}"></ion-img>
+        <p *ngIf="!p.logo_path">{{p.name}}</p>
+      </div>
+      <p class="mt-5">{{jogo.overview}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
